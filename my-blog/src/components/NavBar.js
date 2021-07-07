@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom';
 
 const NavBar = () => {
     return(
-        <nav className = " border-b-4 border-indigo-400 text-center top-0 w-full bg-indigo-300 font-bold text-lg text-white">
+        <nav className = "border-b-4 border-indigo-500 text-center top-0 w-full bg-indigo-400 font-bold text-lg text-white">
         <ul>
             <li className="inline-block pt-4 pb-4">
                 <Link to="/" className="pl-6 pr-8">Home</Link>
