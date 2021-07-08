@@ -6,11 +6,31 @@ app.use(bodyParser.json());
 
 const port = 8000;
 
-app.get("/hello", (req,res) => res.send("Hello"));
+const articlesInfo = {
+    'learn-react': {
+        comments : [],
+    },
+    'learn-node': {
+        comments : [],
+    },
+    'my-thoughts-on-learning-react': {
+        comments : [],
+    }
 
-app.post("/hell", (req,res) => res.send(`Hello ${req.body.name}`) );
+};
 
-app.get("/hello/:name", (req,res) => res.send(`Hello ${req.params.name}`));
+
+//routes
+
+app.post('/api/articles/:name/add-comments', (req, res) => {
+ const { username, text} = req.body;
+ const articleName = req.params.name;
+
+ articlesInfo[articleName].comments.push({ username, text });
+ res.status(200).send(articlesInfo[articleName]);
+});
+
+
 
 app.listen(port , () => console.log("Listening on port 8000..."));
 
